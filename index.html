@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rajnish Study Centre - Drawing Zone</title>
+<title>Rajnish Study Centre - Balvatika Learning Zone</title>
 
 <style>
 *{
@@ -14,8 +14,8 @@
 }
 
 body{
-    font-family:"Noto Sans Gujarati", Arial, sans-serif;
-    background:linear-gradient(135deg,#fff3a6,#b8f2ff,#ffd1ec);
+    font-family:"Noto Sans Gujarati","Nirmala UI",Arial,sans-serif;
+    background:linear-gradient(135deg,#fff3a6,#c8f7ff,#ffd6ee);
     min-height:100vh;
     color:#333;
 }
@@ -23,12 +23,11 @@ body{
 /* HEADER */
 .header{
     text-align:center;
-    padding:18px 10px;
+    padding:20px 10px;
     background:linear-gradient(135deg,#ff6b6b,#ff9f43,#feca57);
     color:white;
-    border-bottom-left-radius:30px;
-    border-bottom-right-radius:30px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    border-radius:0 0 35px 35px;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
 }
 
 .header h1{
@@ -41,182 +40,270 @@ body{
     font-weight:bold;
 }
 
-/* MAIN */
-.container{
-    width:95%;
-    max-width:1000px;
-    margin:20px auto;
+/* NAVIGATION */
+.nav{
+    width:96%;
+    max-width:1100px;
+    margin:15px auto;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:5px;
 }
 
-/* CATEGORY BUTTONS */
-.categories{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    margin-bottom:18px;
-}
-
-.cat-btn{
+.nav button{
+    flex:0 0 auto;
     border:none;
-    padding:13px 7px;
     border-radius:18px;
+    padding:12px 15px;
     background:white;
-    font-size:15px;
     font-weight:bold;
+    font-size:14px;
     cursor:pointer;
-    box-shadow:0 4px 10px rgba(0,0,0,0.12);
-    transition:0.2s;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
 }
 
-.cat-btn:hover{
-    transform:translateY(-3px);
+.nav button:hover{
+    transform:translateY(-2px);
     background:#fff0a8;
 }
 
-.cat-btn.active{
-    background:#6c5ce7;
-    color:white;
+/* SECTIONS */
+.section{
+    width:95%;
+    max-width:1100px;
+    margin:25px auto;
+    padding:20px;
+    background:rgba(255,255,255,.85);
+    border-radius:28px;
+    box-shadow:0 5px 18px rgba(0,0,0,.10);
 }
 
-/* DRAWING TITLE */
-.draw-title{
-    background:white;
-    border-radius:20px;
-    padding:15px;
+.section-title{
     text-align:center;
-    margin-bottom:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-}
-
-.draw-title h2{
     color:#6c5ce7;
+    font-size:26px;
+    margin-bottom:8px;
 }
 
-/* TOOLBAR */
+.section-subtitle{
+    text-align:center;
+    margin-bottom:18px;
+    color:#666;
+}
+
+/* HOME */
+.welcome{
+    text-align:center;
+    padding:15px;
+}
+
+.welcome h2{
+    color:#ff6b6b;
+    margin-bottom:10px;
+}
+
+.learning-menu{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.menu-card{
+    border:none;
+    border-radius:22px;
+    padding:20px 10px;
+    background:white;
+    box-shadow:0 5px 12px rgba(0,0,0,.12);
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.menu-card:hover{
+    transform:scale(1.04);
+    background:#fff8c5;
+}
+
+.menu-card span{
+    display:block;
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+/* LEARNING CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+}
+
+.card{
+    min-height:100px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,.12);
+    cursor:pointer;
+    padding:12px 6px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px) scale(1.03);
+    background:#fff5b8;
+}
+
+.card .big{
+    font-size:34px;
+    color:#6c5ce7;
+    display:block;
+    margin-bottom:4px;
+}
+
+.card .small{
+    font-size:14px;
+    color:#555;
+}
+
+.card .sound{
+    display:block;
+    font-size:12px;
+    margin-top:5px;
+    color:#00a884;
+}
+
+/* NUMBER CARDS */
+.number-card{
+    min-height:85px;
+}
+
+.number-card .big{
+    font-size:28px;
+    color:#0984e3;
+}
+
+/* WORD CARDS */
+.word-card{
+    min-height:90px;
+}
+
+.word-card .big{
+    color:#e84393;
+}
+
+/* DRAWING */
 .toolbar{
     background:white;
-    padding:15px;
+    padding:14px;
     border-radius:22px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.12);
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
     align-items:center;
-    gap:10px;
+    gap:9px;
     margin-bottom:15px;
 }
 
 .tool-label{
     font-weight:bold;
-    font-size:14px;
 }
 
 .color{
-    width:34px;
-    height:34px;
+    width:32px;
+    height:32px;
     border-radius:50%;
     border:3px solid white;
     outline:2px solid #ddd;
     cursor:pointer;
 }
 
-.color:hover{
-    transform:scale(1.15);
-}
-
 .tool-btn{
     border:none;
-    padding:10px 15px;
+    padding:10px 14px;
     border-radius:14px;
-    background:#6c5ce7;
     color:white;
+    background:#6c5ce7;
     font-weight:bold;
     cursor:pointer;
 }
 
-.tool-btn:hover{
-    opacity:0.85;
-}
-
-.tool-btn.erase{
-    background:#ff7675;
-}
-
-.tool-btn.undo{
+.undo{
     background:#0984e3;
 }
 
-.tool-btn.clear{
+.erase{
+    background:#fd79a8;
+}
+
+.clear{
     background:#d63031;
 }
 
-.tool-btn.save{
+.save{
     background:#00b894;
 }
 
-#size{
-    width:110px;
-}
-
-/* CANVAS */
 .canvas-box{
     background:white;
     padding:10px;
     border-radius:25px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
 }
 
 canvas{
     display:block;
     width:100%;
-    height:500px;
-    background:white;
+    height:450px;
     border:4px dashed #74b9ff;
     border-radius:18px;
+    background:white;
     touch-action:none;
     cursor:crosshair;
 }
 
-/* IDEAS */
-.idea-title{
+/* PRACTICE */
+.practice{
     text-align:center;
-    margin:25px 0 12px;
-    color:#6c5ce7;
-    font-size:22px;
+    padding:15px;
+    background:linear-gradient(135deg,#e8f8ff,#fff2c7);
+    border-radius:20px;
+    margin-top:20px;
 }
 
-.ideas{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-}
-
-.idea{
-    background:white;
-    padding:14px 5px;
-    border-radius:18px;
-    text-align:center;
-    font-size:15px;
+.practice button{
+    border:none;
+    background:#00b894;
+    color:white;
+    padding:12px 22px;
+    border-radius:15px;
     font-weight:bold;
     cursor:pointer;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:0.2s;
 }
 
-.idea:hover{
-    transform:scale(1.05);
-    background:#fff4b8;
+/* TOP BUTTON */
+.top-btn{
+    display:block;
+    margin:20px auto 0;
+    border:none;
+    background:#6c5ce7;
+    color:white;
+    padding:10px 20px;
+    border-radius:15px;
+    cursor:pointer;
 }
 
 /* FOOTER */
 .footer{
     margin-top:30px;
+    padding:22px;
     text-align:center;
-    background:#6c5ce7;
     color:white;
-    padding:18px;
-    border-top-left-radius:30px;
-    border-top-right-radius:30px;
+    background:#6c5ce7;
+    border-radius:30px 30px 0 0;
 }
 
 .footer b{
@@ -224,256 +311,860 @@ canvas{
 }
 
 /* MOBILE */
-@media(max-width:700px){
+@media(max-width:800px){
 
     .header h1{
         font-size:24px;
     }
 
-    .header p{
-        font-size:14px;
+    .learning-menu{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .categories{
-        grid-template-columns:repeat(2,1fr);
+    .cards{
+        grid-template-columns:repeat(3,1fr);
     }
 
     canvas{
-        height:420px;
+        height:400px;
+    }
+}
+
+@media(max-width:500px){
+
+    .section{
+        padding:12px;
     }
 
-    .ideas{
+    .section-title{
+        font-size:22px;
+    }
+
+    .cards{
         grid-template-columns:repeat(2,1fr);
+        gap:9px;
     }
 
-    .toolbar{
-        padding:12px 7px;
+    .card{
+        min-height:90px;
     }
 
-    .tool-btn{
-        padding:9px 11px;
-        font-size:13px;
+    .card .big{
+        font-size:30px;
+    }
+
+    .learning-menu{
+        gap:9px;
+    }
+
+    .menu-card{
+        padding:15px 5px;
+        font-size:15px;
+    }
+
+    .menu-card span{
+        font-size:32px;
+    }
+
+    canvas{
+        height:350px;
     }
 }
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <!-- HEADER -->
 <header class="header">
-
-    <h1>🎨 Rajnish Study Centre</h1>
-
-    <p>🌈 Balvatika Drawing Zone 🌈</p>
-
+    <h1>🌈 Rajnish Study Centre</h1>
+    <p>🎒 Balvatika Learning Zone 🎒</p>
 </header>
 
 
-<div class="container">
+<!-- NAVIGATION -->
+<div class="nav">
 
-    <!-- CATEGORIES -->
+    <button onclick="goTo('home')">🏠 Home</button>
 
-    <div class="categories">
+    <button onclick="goTo('abcd')">🔤 ABCD</button>
 
-        <button class="cat-btn active" onclick="showMessage('🎨 Free Drawing')">
-            🎨 Free Drawing
-        </button>
+    <button onclick="goTo('kakko')">🇬🇺 કક્કો</button>
 
-        <button class="cat-btn" onclick="showMessage('🐶 Animals Drawing')">
-            🐶 Animals
-        </button>
+    <button onclick="goTo('numbers')">🔢 ૧–૧૦૦</button>
 
-        <button class="cat-btn" onclick="showMessage('🌳 Nature Drawing')">
-            🌳 Nature
-        </button>
+    <button onclick="goTo('simpleWords')">📝 સરળ શબ્દો</button>
 
-        <button class="cat-btn" onclick="showMessage('🚗 Things Around Me')">
-            🚗 Things
-        </button>
+    <button onclick="goTo('kana')">🟢 કાના</button>
 
-        <button class="cat-btn" onclick="showMessage('😊 Face Drawing')">
-            😊 Faces
-        </button>
+    <button onclick="goTo('matra')">🔵 માત્રા</button>
 
-        <button class="cat-btn" onclick="showMessage('🔢 Number Drawing')">
-            🔢 Numbers
-        </button>
+    <button onclick="goTo('drawing')">🎨 Drawing</button>
 
-        <button class="cat-btn" onclick="showMessage('🔤 Alphabet Drawing')">
-            🔤 ABC Drawing
-        </button>
-
-        <button class="cat-btn" onclick="showMessage('🖍️ Coloring')">
-            🖍️ Coloring
-        </button>
-
-    </div>
+</div>
 
 
-    <!-- TITLE -->
+<!-- HOME -->
+<section class="section" id="home">
 
-    <div class="draw-title">
+    <div class="welcome">
 
-        <h2>✏️ મારું પહેલું ચિત્ર</h2>
+        <h2>🌟 મજા સાથે શીખીએ! 🌟</h2>
 
         <p>
-            આંગળીથી અથવા Mouseથી તમારું સુંદર ચિત્ર દોરો! 🌈
+            👆 કોઈપણ card પર Touch કરો અને શીખો તથા અવાજ સાંભળો.
         </p>
 
     </div>
 
+    <div class="learning-menu">
 
-    <!-- TOOLBAR -->
+        <button class="menu-card" onclick="goTo('abcd')">
+            <span>🔤</span>
+            ABCD
+        </button>
+
+        <button class="menu-card" onclick="goTo('kakko')">
+            <span>🇬🇺</span>
+            ગુજરાતી કક્કો
+        </button>
+
+        <button class="menu-card" onclick="goTo('numbers')">
+            <span>🔢</span>
+            ૧ થી ૧૦૦
+        </button>
+
+        <button class="menu-card" onclick="goTo('simpleWords')">
+            <span>📝</span>
+            સરળ શબ્દો
+        </button>
+
+        <button class="menu-card" onclick="goTo('kana')">
+            <span>🟢</span>
+            કાના વાળા શબ્દો
+        </button>
+
+        <button class="menu-card" onclick="goTo('matra')">
+            <span>🔵</span>
+            માત્રાવાળા શબ્દો
+        </button>
+
+        <button class="menu-card" onclick="goTo('drawing')">
+            <span>🎨</span>
+            Free Drawing
+        </button>
+
+        <button class="menu-card" onclick="speakText('ચાલો મજા સાથે ભણીએ')">
+            <span>🔊</span>
+            સાંભળો
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ABCD -->
+<section class="section" id="abcd">
+
+    <h2 class="section-title">🔤 ABCD Learning</h2>
+
+    <p class="section-subtitle">
+        👆 Letter પર Touch કરો અને pronunciation સાંભળો
+    </p>
+
+    <div class="cards" id="abcCards"></div>
+
+    <div class="practice">
+        <p>⭐ Practice: A થી Z સુધી બોલવાનો પ્રયત્ન કરો!</p>
+        <br>
+        <button onclick="speakText('A B C D E F G H I J K L M N O P Q R S T U V W X Y Z')">
+            🔊 ABCD સાંભળો
+        </button>
+    </div>
+
+</section>
+
+
+<!-- GUJARATI KAKKO -->
+<section class="section" id="kakko">
+
+    <h2 class="section-title">🇬🇺 ગુજરાતી કક્કો</h2>
+
+    <p class="section-subtitle">
+        👆 અક્ષર પર Touch કરો અને ઉચ્ચાર સાંભળો
+    </p>
+
+    <div class="cards" id="kakkoCards"></div>
+
+</section>
+
+
+<!-- NUMBERS -->
+<section class="section" id="numbers">
+
+    <h2 class="section-title">🔢 ૧ થી ૧૦૦</h2>
+
+    <p class="section-subtitle">
+        👆 નંબર પર Touch કરો અને નંબરનું નામ સાંભળો
+    </p>
+
+    <div class="cards" id="numberCards"></div>
+
+</section>
+
+
+<!-- SIMPLE WORDS -->
+<section class="section" id="simpleWords">
+
+    <h2 class="section-title">📝 સરળ શબ્દો</h2>
+
+    <p class="section-subtitle">
+        નાના બાળકો માટે સરળ શબ્દો
+    </p>
+
+    <div class="cards" id="simpleWordCards"></div>
+
+</section>
+
+
+<!-- KANA -->
+<section class="section" id="kana">
+
+    <h2 class="section-title">🟢 કાના વાળા શબ્દો</h2>
+
+    <p class="section-subtitle">
+        ા વાળા સરળ શબ્દો
+    </p>
+
+    <div class="cards" id="kanaCards"></div>
+
+</section>
+
+
+<!-- MATRA -->
+<section class="section" id="matra">
+
+    <h2 class="section-title">🔵 માત્રાવાળા શબ્દો</h2>
+
+    <p class="section-subtitle">
+        િ, ી, ુ, ૂ, ે, ૈ, ો, ૌ વગેરે
+    </p>
+
+    <div class="cards" id="matraCards"></div>
+
+</section>
+
+
+<!-- DRAWING -->
+<section class="section" id="drawing">
+
+    <h2 class="section-title">🎨 Free Hand Drawing</h2>
+
+    <p class="section-subtitle">
+        👆 આંગળી અથવા Mouseથી તમારું સુંદર ચિત્ર દોરો
+    </p>
 
     <div class="toolbar">
 
         <span class="tool-label">🎨 રંગ:</span>
 
-        <button class="color"
-        style="background:#ff0000"
+        <button class="color" style="background:#ff0000"
         onclick="setColor('#ff0000')"></button>
 
-        <button class="color"
-        style="background:#ff8c00"
+        <button class="color" style="background:#ff8c00"
         onclick="setColor('#ff8c00')"></button>
 
-        <button class="color"
-        style="background:#ffd700"
+        <button class="color" style="background:#ffd700"
         onclick="setColor('#ffd700')"></button>
 
-        <button class="color"
-        style="background:#00b894"
+        <button class="color" style="background:#00b894"
         onclick="setColor('#00b894')"></button>
 
-        <button class="color"
-        style="background:#0984e3"
+        <button class="color" style="background:#0984e3"
         onclick="setColor('#0984e3')"></button>
 
-        <button class="color"
-        style="background:#6c5ce7"
+        <button class="color" style="background:#6c5ce7"
         onclick="setColor('#6c5ce7')"></button>
 
-        <button class="color"
-        style="background:#ff69b4"
+        <button class="color" style="background:#ff69b4"
         onclick="setColor('#ff69b4')"></button>
 
-        <button class="color"
-        style="background:#000000"
+        <button class="color" style="background:#000000"
         onclick="setColor('#000000')"></button>
 
         <span class="tool-label">✏️ Size:</span>
 
-        <input
-            type="range"
-            id="size"
-            min="2"
-            max="40"
-            value="7"
-        >
+        <input type="range" id="size" min="2" max="40" value="7">
 
-        <button class="tool-btn undo" onclick="undo()">
-            ↩️ Undo
-        </button>
+        <button class="tool-btn undo" onclick="undo()">↩️ Undo</button>
 
-        <button class="tool-btn erase" onclick="eraser()">
-            🧽 Eraser
-        </button>
+        <button class="tool-btn erase" onclick="eraser()">🧽 Eraser</button>
 
-        <button class="tool-btn clear" onclick="clearCanvas()">
-            🗑️ Clear
-        </button>
+        <button class="tool-btn clear" onclick="clearCanvas()">🗑️ Clear</button>
 
-        <button class="tool-btn save" onclick="saveDrawing()">
-            💾 Save
-        </button>
+        <button class="tool-btn save" onclick="saveDrawing()">💾 Save</button>
 
     </div>
-
-
-    <!-- CANVAS -->
 
     <div class="canvas-box">
-
         <canvas id="drawingCanvas"></canvas>
-
     </div>
 
+</section>
 
-    <!-- DRAWING IDEAS -->
 
-    <h2 class="idea-title">
-        🌟 આજે શું દોરશો?
-    </h2>
-
-    <div class="ideas">
-
-        <div class="idea" onclick="showIdea('☀️ સૂર્ય')">
-            ☀️<br>સૂર્ય
-        </div>
-
-        <div class="idea" onclick="showIdea('🌈 મેઘધનુષ્ય')">
-            🌈<br>મેઘધનુષ્ય
-        </div>
-
-        <div class="idea" onclick="showIdea('🌸 ફૂલ')">
-            🌸<br>ફૂલ
-        </div>
-
-        <div class="idea" onclick="showIdea('🌳 ઝાડ')">
-            🌳<br>ઝાડ
-        </div>
-
-        <div class="idea" onclick="showIdea('🏠 ઘર')">
-            🏠<br>ઘર
-        </div>
-
-        <div class="idea" onclick="showIdea('🐟 માછલી')">
-            🐟<br>માછલી
-        </div>
-
-        <div class="idea" onclick="showIdea('🦋 પતંગિયું')">
-            🦋<br>પતંગિયું
-        </div>
-
-        <div class="idea" onclick="showIdea('🚗 કાર')">
-            🚗<br>કાર
-        </div>
-
-        <div class="idea" onclick="showIdea('🎈 ફુગ્ગો')">
-            🎈<br>ફુગ્ગો
-        </div>
-
-        <div class="idea" onclick="showIdea('⭐ તારો')">
-            ⭐<br>તારો
-        </div>
-
-    </div>
-
-</div>
+<button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ⬆️ ઉપર જાઓ
+</button>
 
 
 <!-- FOOTER -->
-
 <footer class="footer">
 
-    <p>
-        🌈 <b>Rajnish Study Centre</b>
-    </p>
+    <p>🌈 <b>Rajnish Study Centre</b></p>
 
-    <p>
-        Balvatika • Learn • Draw • Enjoy 🎨
-    </p>
+    <p>Balvatika • Learn • Listen • Draw • Enjoy 🎨</p>
+
+    <p>📚 મફત શૈક્ષણિક અભ્યાસ</p>
 
 </footer>
 
 
-
 <script>
 
-/* =========================
-   CANVAS SETUP
-========================= */
+/* ==========================================
+   GENERAL FUNCTIONS
+========================================== */
+
+function goTo(id){
+
+    document.getElementById(id).scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+function speakText(text){
+
+    if(!("speechSynthesis" in window)){
+
+        alert("આ browserમાં Audio Support ઉપલબ્ધ નથી.");
+
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "gu-IN";
+
+    speech.rate = 0.75;
+
+    speech.pitch = 1.1;
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+/* ==========================================
+   ABCD
+========================================== */
+
+const abcData = [
+
+["A","Apple"],
+["B","Ball"],
+["C","Cat"],
+["D","Dog"],
+["E","Elephant"],
+["F","Fish"],
+["G","Grapes"],
+["H","Horse"],
+["I","Ice Cream"],
+["J","Jug"],
+["K","Kite"],
+["L","Lion"],
+["M","Mango"],
+["N","Nest"],
+["O","Orange"],
+["P","Parrot"],
+["Q","Queen"],
+["R","Rabbit"],
+["S","Sun"],
+["T","Tiger"],
+["U","Umbrella"],
+["V","Van"],
+["W","Watch"],
+["X","X-ray"],
+["Y","Yak"],
+["Z","Zebra"]
+
+];
+
+
+function createABCCards(){
+
+    const box = document.getElementById("abcCards");
+
+    abcData.forEach(item => {
+
+        const card = document.createElement("button");
+
+        card.className = "card";
+
+        card.innerHTML = `
+            <span class="big">${item[0]}</span>
+            <span class="small">${item[1]}</span>
+            <span class="sound">🔊 Tap</span>
+        `;
+
+        card.onclick = () => {
+
+            speakText(item[0] + " " + item[1]);
+
+        };
+
+        box.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   GUJARATI KAKKO
+========================================== */
+
+const kakko = [
+"ક","ખ","ગ","ઘ","ઙ",
+"ચ","છ","જ","ઝ","ઞ",
+"ટ","ઠ","ડ","ઢ","ણ",
+"ત","થ","દ","ધ","ન",
+"પ","ફ","બ","ભ","મ",
+"ય","ર","લ","વ",
+"શ","ષ","સ","હ",
+"ળ","ક્ષ","જ્ઞ"
+];
+
+
+function createKakko(){
+
+    const box = document.getElementById("kakkoCards");
+
+    kakko.forEach(letter => {
+
+        const card = document.createElement("button");
+
+        card.className = "card";
+
+        card.innerHTML = `
+            <span class="big">${letter}</span>
+            <span class="sound">🔊 ઉચ્ચાર</span>
+        `;
+
+        card.onclick = () => speakText(letter);
+
+        box.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   1 TO 100
+========================================== */
+
+const gujaratiDigits = [
+"૦","૧","૨","૩","૪","૫","૬","૭","૮","૯"
+];
+
+const gujaratiNumbers = [
+"શૂન્ય",
+"એક",
+"બે",
+"ત્રણ",
+"ચાર",
+"પાંચ",
+"છ",
+"સાત",
+"આઠ",
+"નવ",
+"દસ",
+"અગિયાર",
+"બાર",
+"તેર",
+"ચૌદ",
+"પંદર",
+"સોળ",
+"સત્તર",
+"અઢાર",
+"ઓગણીસ",
+"વીસ",
+"એકવીસ",
+"બાવીસ",
+"તેવીસ",
+"ચોવીસ",
+"પચ્ચીસ",
+"છવ્વીસ",
+"સત્તાવીસ",
+"અઠ્ઠાવીસ",
+"ઓગણત્રીસ",
+"ત્રીસ",
+"એકત્રીસ",
+"બત્રીસ",
+"તેત્રીસ",
+"ચોત્રીસ",
+"પાંત્રીસ",
+"છત્રીસ",
+"સડત્રીસ",
+"અડત્રીસ",
+"ઓગણચાલીસ",
+"ચાલીસ",
+"એકતાલીસ",
+"બેતાલીસ",
+"ત્રેતાલીસ",
+"ચુંમાલીસ",
+"પિસ્તાલીસ",
+"છેતાલીસ",
+"સુડતાલીસ",
+"અડતાલીસ",
+"ઓગણપચાસ",
+"પચાસ",
+"એકાવન",
+"બાવન",
+"ત્રેપન",
+"ચોપન",
+"પંચાવન",
+"છપ્પન",
+"સત્તાવન",
+"અઠ્ઠાવન",
+"ઓગણસાઠ",
+"સાઠ",
+"એકસઠ",
+"બાસઠ",
+"ત્રેસઠ",
+"ચોસઠ",
+"પાંસઠ",
+"છાસઠ",
+"સડસઠ",
+"અડસઠ",
+"અગણોસિત્તેર",
+"સિત્તેર",
+"એકોતેર",
+"બોતેર",
+"તોતેર",
+"ચુમોતેર",
+"પંચોતેર",
+"છોતેર",
+"સિત્યોતેર",
+"ઇઠ્યોતેર",
+"ઓગણાએંસી",
+"એંસી",
+"એક્યાસી",
+"બ્યાસી",
+"ત્ર્યાસી",
+"ચોર્યાસી",
+"પંચ્યાસી",
+"છ્યાસી",
+"સિત્યાસી",
+"ઠ્યાસી",
+"નેવ્યાસી",
+"નેવું",
+"એકાણું",
+"બાણું",
+"ત્રાણું",
+"ચોરાણું",
+"પંચાણું",
+"છન્નું",
+"સત્તાણું",
+"અઠ્ઠાણું",
+"નવ્વાણું",
+"સો"
+];
+
+
+function toGujaratiNumber(num){
+
+    return String(num)
+    .split("")
+    .map(d => gujaratiDigits[Number(d)])
+    .join("");
+
+}
+
+
+function createNumberCards(){
+
+    const box = document.getElementById("numberCards");
+
+    for(let i=1;i<=100;i++){
+
+        const card = document.createElement("button");
+
+        card.className = "card number-card";
+
+        card.innerHTML = `
+            <span class="big">${toGujaratiNumber(i)}</span>
+            <span class="small">${gujaratiNumbers[i]}</span>
+            <span class="sound">🔊</span>
+        `;
+
+        card.onclick = () => {
+
+            speakText(gujaratiNumbers[i]);
+
+        };
+
+        box.appendChild(card);
+
+    }
+
+}
+
+
+/* ==========================================
+   SIMPLE WORDS
+========================================== */
+
+const simpleWords = [
+
+["ઘર","ઘર"],
+["ફળ","ફળ"],
+["જળ","જળ"],
+["બસ","બસ"],
+["રથ","રથ"],
+["વન","વન"],
+["નળ","નળ"],
+["કમળ","કમળ"],
+["મગર","મગર"],
+["ગરમ","ગરમ"],
+["નર","નર"],
+["દર","દર"],
+["મન","મન"],
+["ધન","ધન"],
+["જન","જન"],
+["રમ","રમ"],
+["પલ","પલ"],
+["બક","બક"],
+["કલમ","કલમ"],
+["કબૂતર","કબૂતર"],
+["મમ્મી","મમ્મી"],
+["પપ્પા","પપ્પા"],
+["દાદા","દાદા"],
+["દાદી","દાદી"],
+["નાના","નાના"],
+["નાની","નાની"],
+["ગાય","ગાય"],
+["બકરી","બકરી"],
+["માછલી","માછલી"],
+["પતંગ","પતંગ"]
+
+];
+
+
+function createSimpleWords(){
+
+    const box = document.getElementById("simpleWordCards");
+
+    simpleWords.forEach(item => {
+
+        const card = document.createElement("button");
+
+        card.className = "card word-card";
+
+        card.innerHTML = `
+            <span class="big">${item[0]}</span>
+            <span class="sound">🔊 ${item[1]}</span>
+        `;
+
+        card.onclick = () => speakText(item[1]);
+
+        box.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   KANA WORDS
+========================================== */
+
+const kanaWords = [
+
+"કા",
+"ખા",
+"ગા",
+"ઘા",
+"મા",
+"ના",
+"બા",
+"રા",
+"તા",
+"દા",
+"લા",
+"વા",
+"જા",
+"ચા",
+"પા",
+"ફા",
+"સાત",
+"રામ",
+"રાજા",
+"મામા",
+"કાકા",
+"દાદા",
+"નાના",
+"માળા",
+"તારા",
+"ગાજર",
+"બાજરી",
+"નાળિયેર",
+"પાપા",
+"માતા",
+"બાગ",
+"વાસણ",
+"કાગળ"
+
+];
+
+
+function createKana(){
+
+    const box = document.getElementById("kanaCards");
+
+    kanaWords.forEach(word => {
+
+        const card = document.createElement("button");
+
+        card.className = "card word-card";
+
+        card.innerHTML = `
+            <span class="big">${word}</span>
+            <span class="sound">🔊 સાંભળો</span>
+        `;
+
+        card.onclick = () => speakText(word);
+
+        box.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   MATRA WORDS
+========================================== */
+
+const matraWords = [
+
+/* ઇ / િ */
+
+"કિ",
+"ખિસકોલી",
+"કિનારો",
+"દિવસ",
+"મિત્ર",
+"ચિત્ર",
+
+/* ઈ / ી */
+
+"કી",
+"દીકરી",
+"સીતા",
+"ગીતા",
+"મીણ",
+"નીલ",
+
+/* ઉ / ુ */
+
+"કુ",
+"કુતરું",
+"સુરજ",
+"મુકુટ",
+"ગુણ",
+"પુલ",
+
+/* ઊ / ૂ */
+
+"કૂ",
+"ફૂલ",
+"દૂધ",
+"જૂન",
+"ભૂમિ",
+"ચૂલો",
+
+/* એ / ે */
+
+"કે",
+"કેમ",
+"મેઘ",
+"મેળો",
+"દેવ",
+"ખેતર",
+
+/* ઐ / ૈ */
+
+"કૈ",
+"પૈસા",
+"બૈઠક",
+"નૈના",
+"વૈશાખ",
+
+/* ઓ / ો */
+
+"કો",
+"મોર",
+"રોટલી",
+"ઘોડો",
+"બોટ",
+"દોરો",
+
+/* ઔ / ૌ */
+
+"કૌ",
+"નૌકા",
+"ચૌદ",
+"મૌસમ",
+"પૌત્ર",
+"ગૌરવ"
+
+];
+
+
+function createMatra(){
+
+    const box = document.getElementById("matraCards");
+
+    matraWords.forEach(word => {
+
+        const card = document.createElement("button");
+
+        card.className = "card word-card";
+
+        card.innerHTML = `
+            <span class="big">${word}</span>
+            <span class="sound">🔊 સાંભળો</span>
+        `;
+
+        card.onclick = () => speakText(word);
+
+        box.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   DRAWING CANVAS
+========================================== */
 
 const canvas = document.getElementById("drawingCanvas");
 
@@ -488,13 +1179,7 @@ let brushSize = 7;
 let history = [];
 
 
-/* =========================
-   RESIZE CANVAS
-========================= */
-
-function resizeCanvas(){
-
-    const oldImage = canvas.toDataURL();
+function setupCanvas(){
 
     const rect = canvas.getBoundingClientRect();
 
@@ -504,28 +1189,22 @@ function resizeCanvas(){
 
     canvas.height = rect.height * dpr;
 
-    ctx.scale(dpr,dpr);
-
-    ctx.lineCap = "round";
-
-    ctx.lineJoin = "round";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
 
     ctx.fillStyle = "white";
 
     ctx.fillRect(0,0,rect.width,rect.height);
 
-    if(history.length === 0){
+    ctx.lineCap = "round";
 
-        saveState();
+    ctx.lineJoin = "round";
 
-    }
+    history = [];
+
+    saveState();
 
 }
 
-
-/* =========================
-   SAVE STATE
-========================= */
 
 function saveState(){
 
@@ -539,10 +1218,6 @@ function saveState(){
 
 }
 
-
-/* =========================
-   GET POSITION
-========================= */
 
 function getPosition(e){
 
@@ -559,10 +1234,6 @@ function getPosition(e){
 }
 
 
-/* =========================
-   START DRAWING
-========================= */
-
 function startDrawing(e){
 
     drawing = true;
@@ -577,10 +1248,6 @@ function startDrawing(e){
 
 }
 
-
-/* =========================
-   DRAW
-========================= */
 
 function draw(e){
 
@@ -599,13 +1266,7 @@ function draw(e){
 }
 
 
-/* =========================
-   STOP DRAWING
-========================= */
-
 function stopDrawing(){
-
-    if(!drawing) return;
 
     drawing = false;
 
@@ -613,10 +1274,6 @@ function stopDrawing(){
 
 }
 
-
-/* =========================
-   MOUSE EVENTS
-========================= */
 
 canvas.addEventListener("pointerdown",startDrawing);
 
@@ -629,10 +1286,6 @@ canvas.addEventListener("pointercancel",stopDrawing);
 canvas.addEventListener("pointerleave",stopDrawing);
 
 
-/* =========================
-   COLOR
-========================= */
-
 function setColor(color){
 
     currentColor = color;
@@ -640,21 +1293,12 @@ function setColor(color){
 }
 
 
-/* =========================
-   BRUSH SIZE
-========================= */
+document.getElementById("size").addEventListener("input",function(){
 
-document.getElementById("size")
-.addEventListener("input",function(){
-
-    brushSize = this.value;
+    brushSize = Number(this.value);
 
 });
 
-
-/* =========================
-   ERASER
-========================= */
 
 function eraser(){
 
@@ -667,10 +1311,6 @@ function eraser(){
 }
 
 
-/* =========================
-   CLEAR
-========================= */
-
 function clearCanvas(){
 
     if(confirm("શું તમે ચિત્ર સાફ કરવા માંગો છો?")){
@@ -681,27 +1321,16 @@ function clearCanvas(){
 
         ctx.fillStyle = "white";
 
-        ctx.fillRect(
-            0,
-            0,
-            rect.width,
-            rect.height
-        );
+        ctx.fillRect(0,0,rect.width,rect.height);
 
     }
 
 }
 
 
-/* =========================
-   UNDO
-========================= */
-
 function undo(){
 
     if(history.length <= 1){
-
-        alert("હજુ Undo કરવા માટે કંઈ નથી.");
 
         return;
 
@@ -709,7 +1338,7 @@ function undo(){
 
     history.pop();
 
-    const previous = history[history.length - 1];
+    const previous = history[history.length-1];
 
     const image = new Image();
 
@@ -717,12 +1346,7 @@ function undo(){
 
         const rect = canvas.getBoundingClientRect();
 
-        ctx.clearRect(
-            0,
-            0,
-            rect.width,
-            rect.height
-        );
+        ctx.clearRect(0,0,rect.width,rect.height);
 
         ctx.drawImage(
             image,
@@ -739,10 +1363,6 @@ function undo(){
 }
 
 
-/* =========================
-   SAVE DRAWING
-========================= */
-
 function saveDrawing(){
 
     const link = document.createElement("a");
@@ -756,55 +1376,27 @@ function saveDrawing(){
 }
 
 
-/* =========================
-   CATEGORY MESSAGE
-========================= */
+/* ==========================================
+   START EVERYTHING
+========================================== */
 
-function showMessage(message){
+createABCCards();
 
-    alert(
-        message +
-        "\n\n🎨 હાલ Free Drawing Canvas તૈયાર છે.\n\n" +
-        "આંગળીથી તમારું ચિત્ર દોરો!"
-    );
+createKakko();
 
-}
+createNumberCards();
 
+createSimpleWords();
 
-/* =========================
-   DRAWING IDEA
-========================= */
+createKana();
 
-function showIdea(idea){
-
-    alert(
-        "🌟 આજનું Drawing Challenge 🌟\n\n" +
-        "આજે દોરો: " + idea +
-        "\n\n" +
-        "🎨 Best of luck!"
-    );
-
-}
-
-
-/* =========================
-   START
-========================= */
+createMatra();
 
 window.addEventListener("load",function(){
 
-    resizeCanvas();
+    setupCanvas();
 
 });
-
-
-window.addEventListener("resize",function(){
-
-    /* Page reload વગર canvasની drawing ન બગડે
-       તેથી resize પર canvas ફરી બનાવવામાં આવતું નથી */
-
-});
-
 
 </script>
 
