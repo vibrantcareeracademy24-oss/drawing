@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rajnish Study Centre - Drawing Zone</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Noto Sans Gujarati", Arial, sans-serif;
+    background:linear-gradient(135deg,#fff3a6,#b8f2ff,#ffd1ec);
+    min-height:100vh;
+    color:#333;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:18px 10px;
+    background:linear-gradient(135deg,#ff6b6b,#ff9f43,#feca57);
+    color:white;
+    border-bottom-left-radius:30px;
+    border-bottom-right-radius:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.header h1{
+    font-size:30px;
+    margin-bottom:5px;
+}
+
+.header p{
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* MAIN */
+.container{
+    width:95%;
+    max-width:1000px;
+    margin:20px auto;
+}
+
+/* CATEGORY BUTTONS */
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.cat-btn{
+    border:none;
+    padding:13px 7px;
+    border-radius:18px;
+    background:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.12);
+    transition:0.2s;
+}
+
+.cat-btn:hover{
+    transform:translateY(-3px);
+    background:#fff0a8;
+}
+
+.cat-btn.active{
+    background:#6c5ce7;
+    color:white;
+}
+
+/* DRAWING TITLE */
+.draw-title{
+    background:white;
+    border-radius:20px;
+    padding:15px;
+    text-align:center;
+    margin-bottom:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.draw-title h2{
+    color:#6c5ce7;
+}
+
+/* TOOLBAR */
+.toolbar{
+    background:white;
+    padding:15px;
+    border-radius:22px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.12);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.tool-label{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.color{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    border:3px solid white;
+    outline:2px solid #ddd;
+    cursor:pointer;
+}
+
+.color:hover{
+    transform:scale(1.15);
+}
+
+.tool-btn{
+    border:none;
+    padding:10px 15px;
+    border-radius:14px;
+    background:#6c5ce7;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.tool-btn:hover{
+    opacity:0.85;
+}
+
+.tool-btn.erase{
+    background:#ff7675;
+}
+
+.tool-btn.undo{
+    background:#0984e3;
+}
+
+.tool-btn.clear{
+    background:#d63031;
+}
+
+.tool-btn.save{
+    background:#00b894;
+}
+
+#size{
+    width:110px;
+}
+
+/* CANVAS */
+.canvas-box{
+    background:white;
+    padding:10px;
+    border-radius:25px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+
+canvas{
+    display:block;
+    width:100%;
+    height:500px;
+    background:white;
+    border:4px dashed #74b9ff;
+    border-radius:18px;
+    touch-action:none;
+    cursor:crosshair;
+}
+
+/* IDEAS */
+.idea-title{
+    text-align:center;
+    margin:25px 0 12px;
+    color:#6c5ce7;
+    font-size:22px;
+}
+
+.ideas{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.idea{
+    background:white;
+    padding:14px 5px;
+    border-radius:18px;
+    text-align:center;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+
+.idea:hover{
+    transform:scale(1.05);
+    background:#fff4b8;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:30px;
+    text-align:center;
+    background:#6c5ce7;
+    color:white;
+    padding:18px;
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+}
+
+.footer b{
+    color:#ffeaa7;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .header h1{
+        font-size:24px;
+    }
+
+    .header p{
+        font-size:14px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    canvas{
+        height:420px;
+    }
+
+    .ideas{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .toolbar{
+        padding:12px 7px;
+    }
+
+    .tool-btn{
+        padding:9px 11px;
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+    <h1>🎨 Rajnish Study Centre</h1>
+
+    <p>🌈 Balvatika Drawing Zone 🌈</p>
+
+</header>
+
+
+<div class="container">
+
+    <!-- CATEGORIES -->
+
+    <div class="categories">
+
+        <button class="cat-btn active" onclick="showMessage('🎨 Free Drawing')">
+            🎨 Free Drawing
+        </button>
+
+        <button class="cat-btn" onclick="showMessage('🐶 Animals Drawing')">
+            🐶 Animals
+        </button>
+
+        <button class="cat-btn" onclick="showMessage('🌳 Nature Drawing')">
+            🌳 Nature
+        </button>
+
+        <button class="cat-btn" onclick="showMessage('🚗 Things Around Me')">
+            🚗 Things
+        </button>
+
+        <button class="cat-btn" onclick="showMessage('😊 Face Drawing')">
+            😊 Faces
+        </button>
+
+        <button class="cat-btn" onclick="showMessage('🔢 Number Drawing')">
+            🔢 Numbers
+        </button>
+
+        <button class="cat-btn" onclick="showMessage('🔤 Alphabet Drawing')">
+            🔤 ABC Drawing
+        </button>
+
+        <button class="cat-btn" onclick="showMessage('🖍️ Coloring')">
+            🖍️ Coloring
+        </button>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <div class="draw-title">
+
+        <h2>✏️ મારું પહેલું ચિત્ર</h2>
+
+        <p>
+            આંગળીથી અથવા Mouseથી તમારું સુંદર ચિત્ર દોરો! 🌈
+        </p>
+
+    </div>
+
+
+    <!-- TOOLBAR -->
+
+    <div class="toolbar">
+
+        <span class="tool-label">🎨 રંગ:</span>
+
+        <button class="color"
+        style="background:#ff0000"
+        onclick="setColor('#ff0000')"></button>
+
+        <button class="color"
+        style="background:#ff8c00"
+        onclick="setColor('#ff8c00')"></button>
+
+        <button class="color"
+        style="background:#ffd700"
+        onclick="setColor('#ffd700')"></button>
+
+        <button class="color"
+        style="background:#00b894"
+        onclick="setColor('#00b894')"></button>
+
+        <button class="color"
+        style="background:#0984e3"
+        onclick="setColor('#0984e3')"></button>
+
+        <button class="color"
+        style="background:#6c5ce7"
+        onclick="setColor('#6c5ce7')"></button>
+
+        <button class="color"
+        style="background:#ff69b4"
+        onclick="setColor('#ff69b4')"></button>
+
+        <button class="color"
+        style="background:#000000"
+        onclick="setColor('#000000')"></button>
+
+        <span class="tool-label">✏️ Size:</span>
+
+        <input
+            type="range"
+            id="size"
+            min="2"
+            max="40"
+            value="7"
+        >
+
+        <button class="tool-btn undo" onclick="undo()">
+            ↩️ Undo
+        </button>
+
+        <button class="tool-btn erase" onclick="eraser()">
+            🧽 Eraser
+        </button>
+
+        <button class="tool-btn clear" onclick="clearCanvas()">
+            🗑️ Clear
+        </button>
+
+        <button class="tool-btn save" onclick="saveDrawing()">
+            💾 Save
+        </button>
+
+    </div>
+
+
+    <!-- CANVAS -->
+
+    <div class="canvas-box">
+
+        <canvas id="drawingCanvas"></canvas>
+
+    </div>
+
+
+    <!-- DRAWING IDEAS -->
+
+    <h2 class="idea-title">
+        🌟 આજે શું દોરશો?
+    </h2>
+
+    <div class="ideas">
+
+        <div class="idea" onclick="showIdea('☀️ સૂર્ય')">
+            ☀️<br>સૂર્ય
+        </div>
+
+        <div class="idea" onclick="showIdea('🌈 મેઘધનુષ્ય')">
+            🌈<br>મેઘધનુષ્ય
+        </div>
+
+        <div class="idea" onclick="showIdea('🌸 ફૂલ')">
+            🌸<br>ફૂલ
+        </div>
+
+        <div class="idea" onclick="showIdea('🌳 ઝાડ')">
+            🌳<br>ઝાડ
+        </div>
+
+        <div class="idea" onclick="showIdea('🏠 ઘર')">
+            🏠<br>ઘર
+        </div>
+
+        <div class="idea" onclick="showIdea('🐟 માછલી')">
+            🐟<br>માછલી
+        </div>
+
+        <div class="idea" onclick="showIdea('🦋 પતંગિયું')">
+            🦋<br>પતંગિયું
+        </div>
+
+        <div class="idea" onclick="showIdea('🚗 કાર')">
+            🚗<br>કાર
+        </div>
+
+        <div class="idea" onclick="showIdea('🎈 ફુગ્ગો')">
+            🎈<br>ફુગ્ગો
+        </div>
+
+        <div class="idea" onclick="showIdea('⭐ તારો')">
+            ⭐<br>તારો
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        🌈 <b>Rajnish Study Centre</b>
+    </p>
+
+    <p>
+        Balvatika • Learn • Draw • Enjoy 🎨
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   CANVAS SETUP
+========================= */
+
+const canvas = document.getElementById("drawingCanvas");
+
+const ctx = canvas.getContext("2d");
+
+let drawing = false;
+
+let currentColor = "#ff0000";
+
+let brushSize = 7;
+
+let history = [];
+
+
+/* =========================
+   RESIZE CANVAS
+========================= */
+
+function resizeCanvas(){
+
+    const oldImage = canvas.toDataURL();
+
+    const rect = canvas.getBoundingClientRect();
+
+    const dpr = window.devicePixelRatio || 1;
+
+    canvas.width = rect.width * dpr;
+
+    canvas.height = rect.height * dpr;
+
+    ctx.scale(dpr,dpr);
+
+    ctx.lineCap = "round";
+
+    ctx.lineJoin = "round";
+
+    ctx.fillStyle = "white";
+
+    ctx.fillRect(0,0,rect.width,rect.height);
+
+    if(history.length === 0){
+
+        saveState();
+
+    }
+
+}
+
+
+/* =========================
+   SAVE STATE
+========================= */
+
+function saveState(){
+
+    if(history.length > 15){
+
+        history.shift();
+
+    }
+
+    history.push(canvas.toDataURL());
+
+}
+
+
+/* =========================
+   GET POSITION
+========================= */
+
+function getPosition(e){
+
+    const rect = canvas.getBoundingClientRect();
+
+    return {
+
+        x:e.clientX - rect.left,
+
+        y:e.clientY - rect.top
+
+    };
+
+}
+
+
+/* =========================
+   START DRAWING
+========================= */
+
+function startDrawing(e){
+
+    drawing = true;
+
+    saveState();
+
+    const pos = getPosition(e);
+
+    ctx.beginPath();
+
+    ctx.moveTo(pos.x,pos.y);
+
+}
+
+
+/* =========================
+   DRAW
+========================= */
+
+function draw(e){
+
+    if(!drawing) return;
+
+    const pos = getPosition(e);
+
+    ctx.strokeStyle = currentColor;
+
+    ctx.lineWidth = brushSize;
+
+    ctx.lineTo(pos.x,pos.y);
+
+    ctx.stroke();
+
+}
+
+
+/* =========================
+   STOP DRAWING
+========================= */
+
+function stopDrawing(){
+
+    if(!drawing) return;
+
+    drawing = false;
+
+    ctx.closePath();
+
+}
+
+
+/* =========================
+   MOUSE EVENTS
+========================= */
+
+canvas.addEventListener("pointerdown",startDrawing);
+
+canvas.addEventListener("pointermove",draw);
+
+canvas.addEventListener("pointerup",stopDrawing);
+
+canvas.addEventListener("pointercancel",stopDrawing);
+
+canvas.addEventListener("pointerleave",stopDrawing);
+
+
+/* =========================
+   COLOR
+========================= */
+
+function setColor(color){
+
+    currentColor = color;
+
+}
+
+
+/* =========================
+   BRUSH SIZE
+========================= */
+
+document.getElementById("size")
+.addEventListener("input",function(){
+
+    brushSize = this.value;
+
+});
+
+
+/* =========================
+   ERASER
+========================= */
+
+function eraser(){
+
+    currentColor = "#ffffff";
+
+    brushSize = 25;
+
+    document.getElementById("size").value = 25;
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearCanvas(){
+
+    if(confirm("શું તમે ચિત્ર સાફ કરવા માંગો છો?")){
+
+        saveState();
+
+        const rect = canvas.getBoundingClientRect();
+
+        ctx.fillStyle = "white";
+
+        ctx.fillRect(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+    }
+
+}
+
+
+/* =========================
+   UNDO
+========================= */
+
+function undo(){
+
+    if(history.length <= 1){
+
+        alert("હજુ Undo કરવા માટે કંઈ નથી.");
+
+        return;
+
+    }
+
+    history.pop();
+
+    const previous = history[history.length - 1];
+
+    const image = new Image();
+
+    image.onload = function(){
+
+        const rect = canvas.getBoundingClientRect();
+
+        ctx.clearRect(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+        ctx.drawImage(
+            image,
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+    };
+
+    image.src = previous;
+
+}
+
+
+/* =========================
+   SAVE DRAWING
+========================= */
+
+function saveDrawing(){
+
+    const link = document.createElement("a");
+
+    link.download = "Rajnish-Study-Centre-Drawing.png";
+
+    link.href = canvas.toDataURL("image/png");
+
+    link.click();
+
+}
+
+
+/* =========================
+   CATEGORY MESSAGE
+========================= */
+
+function showMessage(message){
+
+    alert(
+        message +
+        "\n\n🎨 હાલ Free Drawing Canvas તૈયાર છે.\n\n" +
+        "આંગળીથી તમારું ચિત્ર દોરો!"
+    );
+
+}
+
+
+/* =========================
+   DRAWING IDEA
+========================= */
+
+function showIdea(idea){
+
+    alert(
+        "🌟 આજનું Drawing Challenge 🌟\n\n" +
+        "આજે દોરો: " + idea +
+        "\n\n" +
+        "🎨 Best of luck!"
+    );
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+window.addEventListener("load",function(){
+
+    resizeCanvas();
+
+});
+
+
+window.addEventListener("resize",function(){
+
+    /* Page reload વગર canvasની drawing ન બગડે
+       તેથી resize પર canvas ફરી બનાવવામાં આવતું નથી */
+
+});
+
+
+</script>
+
+</body>
+</html>
